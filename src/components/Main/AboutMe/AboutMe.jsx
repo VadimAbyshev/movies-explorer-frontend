@@ -13,7 +13,7 @@ export default function AboutMe() {
             <p className="about-me__bio">Я родился и живу в Саратове, закончил факультет экономики СГУ. У меня есть жена 
 и дочь. Я люблю слушать музыку, а ещё увлекаюсь бегом. Недавно начал кодить. С 2015 года работал в компании «СКБ Контур». 
 После того, как прошёл курс по веб-разработке, начал заниматься фриланс-заказами и ушёл с постоянной работы.</p>
-            <a  href="https://github.com/VadimAbyshev" className="about-me__link">GitHub</a>
+            <a  href="https://github.com/VadimAbyshev" target='_blank' className="about-me__link hover-link">GitHub</a>
             </div> 
             <img
           className="about-me__photo"

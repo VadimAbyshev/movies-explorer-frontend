@@ -50,7 +50,7 @@ font-size: 14px;
 font-style: normal;
 font-weight: 500;
 line-height: normal;
-margin-top: 135px;
+margin-top: 155px;
 }
 .auth__input:last-of-type{
     margin-bottom: 0;
@@ -94,4 +94,8 @@ line-height: normal;
     font-size: 12px;
  }
 
+}
+
+.auth__input:focus{
+    border-bottom: 0.1px solid #3456F3;
 }

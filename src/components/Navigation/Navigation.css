@@ -37,8 +37,8 @@
 text-decoration: none;
 font-size: 13px;
 font-style: normal;
-font-weight: 500;
-line-height: 18px; /* 138.462% */
+font-weight: 400;
+line-height: 18px;  /* 138.462% */
 
 }
 .header__link:hover{
@@ -81,8 +81,19 @@ line-height: 18px; /* 138.462% */
   .header__link-container_type_home{
     display: none;
 }
-
-    @media screen and (min-width: 767px) and (max-width:1279px) {
+.header__link_active{
+  font-size: 13px;
+font-style: normal;
+font-weight: 500;
+line-height: 18px;
+}
+@media screen and (min-width: 768px) and (max-width:1279px){
+  .header__link-container:nth-of-type(3) {
+    margin-right: 300px;
+    width: 150px;
+}
+}
+    @media screen and (min-width: 600px) and (max-width:768px) {
         .header__links-container_type_home{
             margin-left: 447px;
         }
@@ -146,7 +157,7 @@ line-height: 18px; /* 138.462% */
             padding: 0;
           }
           .header__link-container:nth-of-type(4){
-            margin-top: 300px;
+            margin-top: 621px;
           }
           
             .header__burger-close {
@@ -175,7 +186,8 @@ line-height: 18px; /* 138.462% */
           
         
         }
-        @media screen and (max-width: 767px) {
+  
+        @media screen and (max-width: 600px) {
             .header__links-container_type_home{
                 margin-left: 447px;
             }
@@ -202,7 +214,7 @@ line-height: 18px; /* 138.462% */
                 background-color: transparent;
                 background-image: url('../../images/icon__COLOR_icon-main.svg');
                 background-position: center;
-                margin-left: 174px;
+                margin-left: 150px;
               }
               .header__nav_open{
                 height: 100%;
@@ -238,7 +250,7 @@ line-height: 18px; /* 138.462% */
                 padding: 0;
               }
               .header__link-container:nth-of-type(4){
-                margin-top: 300px;
+                margin-top: 444px;
               }
               
                 .header__burger-close {
@@ -299,7 +311,7 @@ padding-top: 8px;
 
 @media screen and (max-width: 767px){
     .header__links-container_type_home{
-        margin-left: 80px;
+        margin-left: 55px;
     }
     .header__signup{
         padding-right: 14px;
@@ -315,4 +327,9 @@ padding-top: 8px;
     }
     
   
+}
+@media screen and (min-width: 551px) and (max-width: 767px){
+  .header__burger{
+    margin-left: 280px;
+  }
 }

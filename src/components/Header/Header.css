@@ -24,7 +24,7 @@
   
   @media screen and (max-width: 767px){
     .header {
-      width: 480px;
+      width: 535px;
       
     }
     .header__container{
@@ -34,9 +34,11 @@
   }
   @media screen and (max-width: 550px){
     .header{
-      width: 300px;
+      width: 295px;
     }
     .header__container{
-      width: 292px;
+      width: 264px;
+      margin-left: 14px;
+      margin-right: 14px;
     }
   }

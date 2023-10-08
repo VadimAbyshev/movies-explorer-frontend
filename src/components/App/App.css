@@ -1,4 +1,4 @@
-.page{ 
+.main{ 
     
     max-width: 1270px;
     display: flex;
@@ -8,17 +8,34 @@
     background: #FFF;
     margin: 0 auto;
 }
+.page{
+    max-width: 1270px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Inter', Arial, sans-serif;
+    background: #FFF;
+    margin: 0 auto; 
+}
 
 @media screen and (max-width: 480px){
-    .page{
+    .main{
         background: #FAFAFA;
+    }
+    .page{
+        background: #FAFAFA; 
     }
 }
 
-.decoration{
+.hover-button{
     transition: opacity 1s ease-out;
     cursor: pointer;
 }
+.hover-link{
+    transition: opacity 1s ease-out;
+    cursor: pointer;
+}
+
 .hover-button:hover{
     opacity: 0.8;
 }

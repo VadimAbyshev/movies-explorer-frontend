@@ -14,13 +14,13 @@ export default function Register() {
                     className="auth__logo"
                 />
             </Link>
-            <h2 className='auth__title'>Рады видеть!</h2>
+            <h1 className='auth__title'>Рады видеть!</h1>
             
         <form
            action="#"
         className='auth__form form'>
 
-          <span className='auth__about-input'>Email</span>   
+          <label className='auth__about-input'>E-mail</label>   
           <input
             type="email"
             id="email"
@@ -34,7 +34,7 @@ export default function Register() {
           />
 
           
-          <span className='auth__about-input'>Пароль</span>
+          <label className='auth__about-input'>Пароль</label>
           <input
             type="password"
             id="password"
@@ -42,11 +42,11 @@ export default function Register() {
             className="auth__input"
             placeholder="Пароль"
             required=""
-            minlength="2"
-            maxlength="40"
+            minLength="2"
+            maxLength="40"
           />
-    <button className="auth__form-submit-button auth__form-submit-login hover-button decoration" type="submit">Войти</button>
-    <p className="auth__subtitle ">Ещё не зарегистрированы?<Link to="/sign-up" className='auth__subtitle-link hover-link decoration'> Регистрация</Link></p>
+    <button className="auth__form-submit-button auth__form-submit-login hover-button " type="submit">Войти</button>
+    <p className="auth__subtitle ">Ещё не зарегистрированы?<Link to="/signup" className='auth__subtitle-link hover-link '> Регистрация</Link></p>
           </form>
   </section>
 

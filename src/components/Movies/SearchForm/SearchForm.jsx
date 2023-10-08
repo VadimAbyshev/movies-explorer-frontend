@@ -4,7 +4,7 @@ import {useState} from "react";
 export default function SearchForm(){
 
   return (
-    <div className="search page__search">
+    <section className="search page__search">
 
       <form className="search__form form" >
 
@@ -22,7 +22,7 @@ export default function SearchForm(){
               required
             />
             
-            <button className="search__form-button-submit decoration"/>
+            <button  className="search__form-button-submit decoration" type='submit'/>
           </div>
           
           <div className="search__checkbox-container button-hover">
@@ -44,7 +44,7 @@ export default function SearchForm(){
    
       </form>
 
-    </div>
+    </section>
   )
 }
 

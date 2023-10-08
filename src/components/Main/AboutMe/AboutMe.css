@@ -142,6 +142,10 @@
         font-size: 30px;
         line-height: normal;
         letter-spacing: -1.2px;
+       
+    }
+    .about-me__text{
+        width: 400px;
     }
 
     .about-me__subtitle {
@@ -160,7 +164,7 @@
     }
 
     .about-me__bio {
-        width: 364px;
+        width: 400px;
         font-feature-settings: 'clig' off, 'liga' off;
         font-size: 11px;
         line-height: 16px;
@@ -205,7 +209,7 @@
 
     .about-me__bio {
         width: 270px;
-        padding-bottom: 23px;
+        padding-bottom: 16px;
 
 
     }

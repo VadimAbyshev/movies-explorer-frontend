@@ -7,12 +7,12 @@ import { useState } from 'react'
 
 export default function MoviesCard({name}) {
    
- 
-
+  
+    
 
   return (
 <div className="element">
-    <img className="element__image"  src={poster} />
+    <img className="element__image"  src={poster} alt='Постер к Фильму'/>
   
     <div className="element__info">
         <div className='element__text'>

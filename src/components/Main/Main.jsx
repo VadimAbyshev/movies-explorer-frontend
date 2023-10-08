@@ -12,7 +12,7 @@ function Main() {
   return (
     <>
         <Navigation name='home'/>
-      <main className="main">
+      
 
         <Promo/>
         <NavTab/>
@@ -21,7 +21,6 @@ function Main() {
         <AboutMe/>
         <Portfolio/>
         
-      </main>
       <Footer/>
     </>
   )

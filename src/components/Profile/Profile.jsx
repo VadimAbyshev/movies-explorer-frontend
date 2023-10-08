@@ -26,25 +26,25 @@ export default function Profile() {
     <div className="profile__container">
       
       <div className="profile__container-info">
-        <span className="profile__info-text">Имя</span>
+        <label className="profile__info-text">Имя</label>
         <input
           className="profile__info-text"
           type="text"
           placeholder="Вадим"
-          minlength="2"
-          maxlength="40"
+          minLength="2"
+          maxLength="40"
         />
       </div>
 
       
       <div className="profile__container-info">
-        <span className="profile__info-text  profile__info-text_last ">E-mail</span>
+        <label className="profile__info-text  profile__info-text_last ">E-mail</label>
         <input
           className="profile__info-text profile__info-text_last"
           type="text"
           placeholder="admin@admin.ru"
-          minlength="2"
-          maxlength="40"
+          minLength="2"
+          maxLength="40"
         />
       </div>
 
@@ -59,7 +59,7 @@ export default function Profile() {
       <button type="submit" className="profile__button-edit decoration hover-button" onClick={makeButtonVisible}>
       Редактировать
       </button>
-        <Link to="/sign-in" className="profile__link-exit hover-button decoration">
+        <Link to="/" className="profile__link-exit hover-button decoration">
           Выйти из аккаунта
         </Link>
       </>

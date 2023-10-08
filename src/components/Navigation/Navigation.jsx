@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import './Navigation.css'
-import logo from '../../images/logo.png'
+import logo from '../../images/logo.svg'
 import { Link, useLocation } from "react-router-dom";
 
 
 export default function Navigation({ name }) {
   const { pathname } = useLocation()
   const [isOpen, setIsOpen] = useState(false)
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
 
 
 
@@ -42,10 +42,10 @@ export default function Navigation({ name }) {
 
 
   return (
-    <header className= {`header  decoration ${pathname === '/' ? 'page__header' : ''}`}>
+    <header className= {`header   ${pathname === '/' ? 'page__header' : ''}`}>
       
       <div className='header__container'>
-      <Link to="/" className='header__logo decoration hover-button'>
+      <Link to="/" className='header__logo  hover-button'>
       <img
         src={logo}
         alt="логотип"
@@ -60,10 +60,10 @@ export default function Navigation({ name }) {
 
           <div className='header__links-container header__links-container_type_home'>
             
-              <Link to={'/sign-up'} className="header__signup decoration hover-link">Регистрация</Link>
+              <Link to={'/signup'} className="header__signup  hover-link">Регистрация</Link>
             
            
-              <Link to={'/sign-in'} className="header__signin decoration hover-link">Войти</Link>
+              <Link to={'/signin'} className="header__signin  hover-link">Войти</Link>
            
           </div>
 
@@ -81,7 +81,7 @@ export default function Navigation({ name }) {
             <div className='header__link-containe header__link-container_type_home'>
                 <Link
                   to={'/'}
-                  className={`header__link decoration ${pathname === '/' ? 'header__link_active' : ''}`}
+                  className={`header__link hover-link ${pathname === '/' ? 'header__link_active' : ''}`}
                   onClick={openLink}
                 >Главная</Link>
               </div>
@@ -89,7 +89,7 @@ export default function Navigation({ name }) {
               <div className='header__link-container'>
                 <Link
                   to={'/movies'}
-                  className={`header__link decoration ${pathname === '/movies' ? 'header__link_active' : ''}`}
+                  className={`header__link hover-link ${pathname === '/movies' ? 'header__link_active' : ''}`}
                   onClick={openLink}
                 >Фильмы</Link>
               </div>
@@ -98,7 +98,7 @@ export default function Navigation({ name }) {
               <div className='header__link-container'>
                 <Link
                   to={'/saved-movies'}
-                  className={`header__link decoration ${pathname === '/saved-movies' ? 'header__link_active' : ''}`}
+                  className={`header__link hover-link ${pathname === '/saved-movies' ? 'header__link_active' : ''}`}
                   onClick={openLink}
                 >Сохранённые фильмы
                 </Link>
@@ -107,7 +107,7 @@ export default function Navigation({ name }) {
               <div className='header__link-container'>
                 <Link
                   to={'/profile'}
-                  className={`header__link decoration header__profile-icon header__link_type_profile ${pathname === '/profile' ? 'header__link_active' : ''}`}
+                  className={`header__link hover-link header__profile-icon header__link_type_profile ${pathname === '/profile' ? 'header__link_active' : ''}`}
                   onClick={openLink}
                 >
                 </Link>
@@ -117,7 +117,7 @@ export default function Navigation({ name }) {
 
             
           </nav>
-          <button type='button' className='header__burger decoration hover-button' onClick={handleClick}></button>
+          <button type='button' className='header__burger  hover-button' onClick={handleClick}></button>
         </>
       }
 

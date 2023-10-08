@@ -86,12 +86,13 @@ text-align: center;
 
 @media screen and (min-width: 767px) and (max-width: 1279px){
     .profile__container{
-        margin-top: 99px;
+        margin-top: 94px;
     }
     .profile__container-info:last-of-type{
         margin-bottom: 87px;
      
     }
+    .profile{margin-top: 239px;}
 }
 
 @media screen and (max-width: 767px){

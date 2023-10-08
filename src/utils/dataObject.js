@@ -1,0 +1,5 @@
+const initialCards = [
+    {
+      title: 'Архыз',
+        }
+  ];

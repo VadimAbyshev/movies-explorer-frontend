@@ -14,25 +14,25 @@ export default function Register() {
                     className="auth__logo"
                 />
             </Link>
-            <h2 className='auth__title'>Добро пожаловать!</h2>
+            <h1 className='auth__title'>Добро пожаловать!</h1>
             
         <form className='auth__form form'>
-            <span className='auth__about-input'>Имя</span>
+            <label className='auth__about-input'>Имя</label>
            <input
-            type="nameUser"
-            id="nameUser"
-            name="nameUser"
+            type="text"
+            id="UserName"
+            name="UserName"
             className="auth__input"
             placeholder="Имя"
             required=""
-            minlength="2"
-            maxlength="40"
+            minLength="2"
+            maxLength="40"
             
           />
 
           
           
-          <span className='auth__about-input'>Email</span>   
+          <label className='auth__about-input'>E-mail</label>   
           <input
             type="email"
             id="email"
@@ -40,13 +40,13 @@ export default function Register() {
             className="auth__input"
             placeholder="Email"
             required=""
-            minlength="2"
-            maxlength="40"
+            minLength="2"
+            maxLength="40"
 
           />
 
           
-          <span className='auth__about-input'>Пароль</span>
+          <label className='auth__about-input'>Пароль</label>
           <input
             type="password"
             id="password"
@@ -54,11 +54,11 @@ export default function Register() {
             className="auth__input"
             placeholder="Пароль"
             required=""
-            minlength="2"
-            maxlength="40"
+            minLength="2"
+            maxLength="40"
           />
     <button className=" auth__form-submit-register hover-button decoration" type="submit">Зарегистрироваться</button>
-    <p className="auth__subtitle">Уже зарегистрированы? <Link to="/sign-in" className='auth__subtitle-link hover-link decoration'> Войти</Link></p>
+    <p className="auth__subtitle">Уже зарегистрированы? <Link to="/signin" className='auth__subtitle-link hover-link decoration'> Войти</Link></p>
           </form>
   </section>
 
