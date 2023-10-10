@@ -8,9 +8,9 @@ export default function Portfolio() {
     <section className='portfolio page__portfolio'>
         <h2 className='portfolio__title'>Портфолио</h2>
 
-        <nav className="portfolio__nav">
+        <ul className="portfolio__nav">
 
-          <ul className='portfolio__lists'>
+
 
             <li className='portfolio__element'>
               <Link to={'https://github.com/VadimAbyshev'} target='_blank' className='portfolio__link hover-link'>
@@ -22,7 +22,6 @@ export default function Portfolio() {
       />
               </Link>
             </li>
-
             <li className='portfolio__element'>
               <Link to={'https://github.com/VadimAbyshev'} target='_blank' className='portfolio__link hover-link'>
                 <p className='portfolio__subtitle'>Адаптивный сайт</p>
@@ -33,6 +32,8 @@ export default function Portfolio() {
       />
               </Link>
             </li>
+
+   
 
             <li className='portfolio__element'>
               <Link to={'https://github.com/VadimAbyshev'} target='_blank' className='portfolio__link portfolio__link_type_last hover-link'>
@@ -46,10 +47,11 @@ export default function Portfolio() {
               </Link>
               
             </li>
+      
 
           </ul>
 
-        </nav>
+      
 
     </section>
   )

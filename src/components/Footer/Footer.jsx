@@ -13,10 +13,10 @@ export default function Footer() {
       <div className="footer__container">
 
         <p className="footer__subtitle">© 2023</p>
-        <nav className="footer__nav">
-          <Link to={'https://practicum.yandex.ru/'} target='_blank' className="footer__link decoration">Яндекс.Практикум</Link>
-          <Link to={'https://github.com/VadimAbyshev'} target='_blank' className="footer__link decoration">Github</Link>
-        </nav>
+        <ul className="footer__nav">
+         <li className='footer__nav-element'><Link to={'https://practicum.yandex.ru/'} target='_blank' className="footer__link decoration">Яндекс.Практикум</Link></li>
+         <li className='footer__nav-element'><Link to={'https://github.com/VadimAbyshev'} target='_blank' className="footer__link decoration">Github</Link></li>
+        </ul>
       </div>
 
 

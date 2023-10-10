@@ -19,6 +19,7 @@ export default function Profile() {
 
   return (
     <><Navigation/>
+     <main className="main">
     <section className="profile">
 
     <h1 className="profile__title">Привет, Виталий!</h1>
@@ -65,6 +66,7 @@ export default function Profile() {
       </>
     )}
   </section>
+  </main>
   </>
   );
 }

@@ -98,7 +98,7 @@ line-height: 18px;
 }
     @media screen and (min-width: 600px) and (max-width:768px) {
       .header__links-container_type_home{
-        margin-left: 220px;
+        margin-left: 448px;
     }
         .header__link-container_type_home{
             display: block;
@@ -191,10 +191,10 @@ line-height: 18px;
         }
   
         @media screen and (max-width: 600px) {
+    
           .header__links-container_type_home{
-            margin-left: 60px;
+            margin-left: 80px;
         }
-      
             .header__link-container_type_home{
                 display: block;
             }
@@ -216,9 +216,9 @@ line-height: 18px;
                 border: none;
                 padding: 0;
                 background-color: transparent;
-                background-image: url('../../images/icon__COLOR_icon-main.svg');
+                background-image: url(../../images/320Burger.svg);
                 background-position: center;
-                margin-left: 150px;
+                margin-left: 180px;
               }
               .header__nav_open{
                 height: 100%;
@@ -330,11 +330,22 @@ padding-top: 8px;
     
   
 }
-@media screen and (min-width: 551px) and (max-width: 767px){
+
+
+
+@media screen and (min-width: 500px) and (max-width: 766px){
   .header__burger{
-    margin-left: 280px;
+    margin-left: 340px;
   }
   .header__links-container_type_home{
-    margin-left: 200px;
+    margin-left: 240px;
+}
+}
+@media screen and (min-width: 450px) and (max-width: 500px){
+  .header__burger{
+    margin-left: 270px;
+  }
+  .header__links-container_type_home{
+    margin-left: 190px;
 }
 }

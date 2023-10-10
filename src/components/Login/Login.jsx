@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom'
-import logo from '../../images/logo.png'
+import logo from '../../images/logo.svg'
 import './Login.css'
 
 
-export default function Register() {
+export default function Login() {
+  
   return (
-
+    <main className="main">
     <section className = "auth auth__page">
-            <Link to="/" className='auth__logo'>
+            <Link to="/" className='auth__logo hover-link'>
                 <img
                     src={logo}
                     alt="логотип социальной сети"
@@ -49,6 +50,6 @@ export default function Register() {
     <p className="auth__subtitle ">Ещё не зарегистрированы?<Link to="/signup" className='auth__subtitle-link hover-link '> Регистрация</Link></p>
           </form>
   </section>
-
+</main>
   )
 }

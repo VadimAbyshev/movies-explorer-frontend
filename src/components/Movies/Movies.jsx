@@ -7,9 +7,10 @@ function Movies() {
   return (
     <>
  <Navigation/>
+ <main className="main">
     <SearchForm/>
     <MoviesCardList name="movies"/>
-    
+    </main>
       <Footer/>
     </>
   )

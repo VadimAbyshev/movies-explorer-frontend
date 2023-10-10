@@ -1,5 +1,0 @@
-const initialCards = [
-    {
-      title: 'Архыз',
-        }
-  ];

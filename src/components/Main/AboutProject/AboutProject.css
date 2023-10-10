@@ -37,7 +37,6 @@
     margin: 0;
     width: 550px;
     color: #000;
-    font-family: Inter;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
@@ -48,7 +47,6 @@
     width: 550px;
     margin: 0;
     color: #000;
-    font-family: Inter;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -138,7 +136,7 @@
     }
     .about-project__title{
         padding-top: 70px;
-        width: 480px;
+        width: 100%;
      
         }
         .about-project__info_days{
@@ -172,6 +170,11 @@
         }
 
   } 
+  @media screen and (max-width: 767px){
+    .about-project{
+        width: 100%;
+      }
+  }
   @media screen and (max-width: 550px) {
     .about-project{
       width: 292px;

@@ -13,6 +13,7 @@ function Main() {
     <>
         <Navigation name='home'/>
       
+        <main className="main">
 
         <Promo/>
         <NavTab/>
@@ -20,8 +21,9 @@ function Main() {
         <Techs/>
         <AboutMe/>
         <Portfolio/>
-        
+        </main>
       <Footer/>
+      
     </>
   )
 }

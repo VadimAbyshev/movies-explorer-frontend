@@ -1,5 +1,5 @@
 .header {
-    width: 1260px;
+    width: 100%;
     min-height: 74px;
     display: flex;
     align-items: center;
@@ -8,13 +8,15 @@
   .header__container{
     width: 1140px;
     display: flex;
-    margin: 0px auto 0;
+      margin: 0px 70px 0 70px;
+
     align-items: center;
   }
   
   @media screen and (min-width: 767px) and (max-width: 1279px) {
     .header {
-      width: 750px;
+      width: 100%;
+
     }
     .header__container {
       margin: 0 auto;
@@ -24,21 +26,25 @@
   
   @media screen and (max-width: 767px){
     .header {
-      width: 535px;
+      width: 100%;
+
       
     }
     .header__container{
       margin: 0 auto;
-      width: 400px;
-    }
-  }
-  @media screen and (max-width: 550px){
-    .header{
-      width: 295px;
-    }
-    .header__container{
-      width: 264px;
+      width: 100%;
       margin-left: 14px;
       margin-right: 14px;
+    }
+  }
+  @media screen and (max-width: 380px){
+    .header{
+      
+      margin: 0 auto;
+    }
+    .header__container{
+      width: 290px;
+      margin: 0 auto;
+      
     }
   }

@@ -17,7 +17,6 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
      
-      <main className="main">
 <Routes>
 
   
@@ -34,7 +33,6 @@ function App() {
 
 
 </Routes>
-</main>
 
 
 </CurrentUserContext.Provider>

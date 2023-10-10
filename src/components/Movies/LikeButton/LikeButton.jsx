@@ -9,6 +9,6 @@ export default function LikeButton() {
         setIsLike(true)
     }
   return (
-    <button className={`decoration element__like-button  ${isLike ? 'element__like-button_active' : ''}`} type="button" onClick={onLike} />
+    <button className={`decoration element__like-button  hover-button ${isLike ? 'element__like-button_active' : ''}`} type="button" onClick={onLike} />
   );
 }

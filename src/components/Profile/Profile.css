@@ -50,7 +50,6 @@ margin: 0;
 .profile__button-edit{
     color: #000;
 text-align: center;
-font-family: Inter;
 font-size: 13px;
 font-style: normal;
 font-weight: 400;
@@ -62,13 +61,15 @@ border: none;
 .profile__link-exit{
     color: #EE3465;
     text-align: center;
-    font-family: Inter;
     font-size: 13px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
     text-decoration: none;
     margin-top: 16px;
+}
+.profile__info-text:focus{
+    border-bottom: 0.1px solid #3456F3;
 }
 .profile__button-save{
     border-radius: 3px;

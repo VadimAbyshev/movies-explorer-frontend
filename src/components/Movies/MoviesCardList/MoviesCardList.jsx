@@ -9,14 +9,17 @@ export default function MoviesCardList({name}) {
     
 <section className='cards'>
  
-  <div className='cards__page'>
+  <ul className='cards__page'>
+    <MoviesCard name={name} title={'Семеро'}/>
+    <MoviesCard name={name} title={'Восемь'}/>
+    <MoviesCard name={name}/>
     <MoviesCard name={name}/>
     <MoviesCard name={name}/>
     <MoviesCard name={name}/>
     <MoviesCard name={name}/>
     <MoviesCard name={name}/>
    
-    </div>
+    </ul>
   <div className='cards__tools'>
     <button className="cards__button decoration" type="button">
         Ещё
