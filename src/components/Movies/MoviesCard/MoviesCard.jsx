@@ -14,7 +14,7 @@ export default function MoviesCard({name, title}) {
   
     <div className="element__info">
         <div className='element__text'>
-            <h2 className="element__title"  >Akuna Matata</h2>
+            <h2 className="element__title"  >{title}</h2>
             <p className='element__timeline'>1ч15м</p>
         </div>
         <div className="element__info_like-container">

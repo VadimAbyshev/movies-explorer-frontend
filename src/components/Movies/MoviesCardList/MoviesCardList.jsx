@@ -12,12 +12,12 @@ export default function MoviesCardList({name}) {
   <ul className='cards__page'>
     <MoviesCard name={name} title={'Семеро'}/>
     <MoviesCard name={name} title={'Восемь'}/>
-    <MoviesCard name={name}/>
-    <MoviesCard name={name}/>
-    <MoviesCard name={name}/>
-    <MoviesCard name={name}/>
-    <MoviesCard name={name}/>
-    <MoviesCard name={name}/>
+    <MoviesCard name={name} title={'Шесть'}/>
+    <MoviesCard name={name} title={'11'}/>
+    <MoviesCard name={name} title={'101 день'}/>
+    <MoviesCard name={name} title={'этап 4 не за горами'}/>
+    <MoviesCard name={name} title={'функционал не реален'}/>
+    <MoviesCard name={name} title={'Восемь'}/>
    
     </ul>
   <div className='cards__tools'>
