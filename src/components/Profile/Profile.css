@@ -1,0 +1,113 @@
+.profile{
+    margin-top: 74px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 410px;
+}
+.profile__title{
+    color: #000;
+text-align: center;
+font-size: 24px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+margin: 0;
+}
+.profile__container{
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 123px auto;
+    justify-content: space-between;
+
+}
+.profile__container-info{
+    margin-bottom: 17px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #E8E8E8;;
+}
+.profile__info-text{
+   border: none;
+   outline:none;
+   padding-bottom: 16px;
+    color: #000;
+    text-align: right;
+    font-size: 11px;
+    font-style: normal;
+     font-weight: 400;
+    line-height: normal;
+}
+.profile__container-info:last-of-type{
+    margin-bottom: 99px;
+    border: none;
+}
+.profile__info-text_last{
+    padding: 0;
+}
+.profile__button-edit{
+    color: #000;
+text-align: center;
+font-size: 13px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+background-color: transparent;
+border: none;
+}
+
+.profile__link-exit{
+    color: #EE3465;
+    text-align: center;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-decoration: none;
+    margin-top: 16px;
+}
+.profile__info-text:focus{
+    border-bottom: 0.1px solid #3456F3;
+}
+.profile__button-save{
+    border-radius: 3px;
+background: #3456F3;
+color: white;
+border: none;
+width: 410px;
+height: 45px;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+text-align: center;
+}
+
+@media screen and (min-width: 767px) and (max-width: 1279px){
+    .profile__container{
+        margin-top: 94px;
+    }
+    .profile__container-info:last-of-type{
+        margin-bottom: 87px;
+     
+    }
+    .profile{margin-top: 239px;}
+}
+
+@media screen and (max-width: 767px){
+    .profile__container-info{
+        width: 260px;
+    }
+
+    .profile__container{
+        width: 260px;
+        margin: 80px auto 279px;
+    }
+    .profile{
+        width: 260px;
+        margin: 70px auto 0;
+    }
+
+}

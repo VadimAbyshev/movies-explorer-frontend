@@ -1,0 +1,64 @@
+.cards__page {
+    display: grid;
+    width: 1140px;
+    margin-top: 80px;
+    grid-template-columns: repeat(4, 270px);
+    gap: 32px 20px;
+    padding: 0;
+    
+}
+
+.cards__button {
+    width: 320px;
+    height: 36px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    background: #F4F4F4;
+    border: none;
+    color: #000;
+    text-align: center;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin: 60px auto 0;
+    cursor: pointer;
+}
+.cards__tools{
+    display: flex;
+}
+.cards{
+    margin-bottom: 100px;
+}
+@media screen and (min-width: 767px) and (max-width: 1279px){
+    .cards__page{
+        width: 708px;
+        grid-template-columns: repeat(2, 340px);
+        align-items: center;
+        gap: 36px 30px;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .cards{
+        margin: 0 auto;
+    }
+    .cards__page{
+        width: 292px;
+        grid-template-columns: repeat(1, 292px);
+        align-items: center;
+        gap: 20px 0px;
+        margin: 45px auto 0;
+    }
+    .cards__button{
+        width: 240px;
+        height: 36px;
+        margin-top: 74px;
+        margin-bottom: 85px;
+    }
+
+}
+
+.cards__button:hover{
+    opacity: 0.8;
+}

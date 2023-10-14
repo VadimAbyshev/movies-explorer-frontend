@@ -1,0 +1,128 @@
+.page__portfolio {
+    width: 100%;
+    padding-top: 100px;
+    margin-bottom: 135px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.portfolio__title {
+    margin: 0 0 50px 0;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #8B8B8B;
+}
+
+.portfolio__element{
+    color: #000;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px; /* 166.667% */
+    letter-spacing: -1.2px;
+}
+
+.portfolio__nav {
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.portfolio__link {
+    text-decoration: none;
+    padding-bottom: 9px;
+    margin-bottom: 29px;
+    border-bottom: 1px solid #E6E6E6;
+    display: flex;
+    justify-content: space-between;
+    color: #000;
+}
+.portfolio__link:hover{
+    opacity: 0.7;
+  }
+
+
+.portfolio__link_type_last {
+    margin-bottom: 0;
+}
+
+.portfolio__subtitle {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 50px;
+    letter-spacing: -1.2px;
+}
+
+.portfolio__button {
+    width: 20px;
+    height: 18px;
+    padding-top: 21px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+
+}
+
+@media screen and (min-width: 767px) and (max-width: 1279px){
+    .page__portfolio{
+       width: 668px;
+        padding-top: 91px;
+        margin-bottom: 100px
+    }
+    .portfolio__subtitle{
+        font-size: 28px;
+    
+        line-height: 50px; /* 178.571% */
+        letter-spacing: -1.12px;
+    }
+
+}
+
+
+
+
+
+@media screen and (max-width: 450px){
+    .page__portfolio{
+        padding-top: 71px;
+        margin: 0 auto 46px;
+        width: 292px;
+    }
+    .portfolio__title{
+        margin-bottom: 44px;
+        font-size: 14px;
+    }
+    .portfolio__nav{
+        margin-top: -4px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+    .portfolio__subtitle{
+font-size: 18px;
+line-height: 28px; /* 155.556% */
+letter-spacing: -0.72px;
+    }
+    .portfolio__link{
+        height: 28px;
+        padding-bottom: 20px;        
+        margin-bottom: 20px;
+    }
+    .portfolio__element{
+        margin: 0;
+    }
+    .portfolio__element:last-of-type{
+        margin-bottom: 0px
+    }
+    .portfolio__button{
+        width: 10px;
+        height: 18px;
+      padding: 0;
+    }
+}

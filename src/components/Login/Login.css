@@ -1,0 +1,122 @@
+.auth__page{
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin-top: 70px;
+}
+.auth__title{
+    margin-top: 35px;
+    margin-bottom: 0;
+    font-size: 24px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+.auth__form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+.auth__about-input{
+    color: #A0A0A0;
+padding-left: 2px;
+font-size: 10px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.auth__input{
+    border: none;
+    border-bottom: #E8E8E8 solid 1px;
+    background: transparent;
+    margin-bottom: 29px;
+    outline:none;
+    height: 27px;
+    
+    font-size: 13px;
+    font-weight: 400;
+    line-height: normal;
+}
+.auth__input:focus{
+    border-bottom: 0.1px solid #3456F3;
+}
+.auth__form-submit-button{
+    width: 362px;
+height: 45px;
+flex-shrink: 0;
+border-radius: 3px;
+background: #3456F3;
+color: #FFF;
+text-align: center;
+border: none;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+margin-top: 135px;
+}
+.auth__input:last-of-type{
+    margin-bottom: 0;
+}
+.auth__about-input:last-of-type{
+    margin-top: -3px;
+}
+.auth__subtitle{
+    color: #A0A0A0;
+text-align: center;
+
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.auth__subtitle-link{
+    color: #3456F3;
+text-align: center;
+text-decoration: none;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+
+}
+.auth__form-submit-login{
+    margin-top: 223px;
+    width: 396px;
+}
+
+@media screen and (max-width: 767px){
+
+    .auth__form-submit-button  {
+        width: 260px;
+        font-size: 12px;
+       
+        
+     }
+     .auth__form-submit-login{
+        margin-top: 308px;
+        height: 45px;
+     }
+     .auth__logo{
+        margin: 0 auto;
+     }
+     .auth__form{
+        margin-top: 30px;
+     }
+     .auth__title{
+        margin: 48px auto;
+     }
+     .auth__input{
+        margin-bottom: 30px;
+        height: 17px;
+        padding-bottom: 12px;
+     }
+     .auth__subtitle{
+        font-size: 12px;
+     }
+     .auth__subtitle-link{
+        font-size: 12px;
+     }
+
+    
+    }
