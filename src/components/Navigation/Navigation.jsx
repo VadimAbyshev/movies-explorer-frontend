@@ -4,10 +4,9 @@ import logo from '../../images/logo.svg'
 import { Link, useLocation } from "react-router-dom";
 
 
-export default function Navigation({ name }) {
+export default function Navigation({ name, loggedIn }) {
   const { pathname } = useLocation()
   const [isOpen, setIsOpen] = useState(false)
-  const [loggedIn, setLoggedIn] = useState(true);
 
 
 
