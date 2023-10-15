@@ -77,7 +77,7 @@ class ApiMain {
 }
 
 const apiMain = new ApiMain({
-  baseUrl: 'http://api.diplom.vadimo.nomoredomainsrocks.ru',
+  baseUrl: 'https://api.diplom.vadimo.nomoredomainsrocks.ru',
 });
 
 export default apiMain

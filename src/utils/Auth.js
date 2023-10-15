@@ -1,4 +1,4 @@
-const baseUrl = 'http://api.diplom.vadimo.nomoredomainsrocks.ru'
+const baseUrl = 'https://api.diplom.vadimo.nomoredomainsrocks.ru'
 
 
 function getResponseData(res) {
