@@ -6,7 +6,7 @@ import { useContext, useEffect } from "react";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import useFormValidation from "../../utils/useFormValidation";
 import FormProfile from "../FormProfile/FormProfile";
-
+import { EmailRegex } from "../../utils/constants";
 export default function Profile({ logOut, isSucess, editUserData, isEditProfile, setEditProfile}) {
   const [isVisibleSubmit, setIsVisibleSubmit] = useState(false);
   const [isUserDataChanged, setIsUserDataChanged] = useState(false)
@@ -70,6 +70,7 @@ export default function Profile({ logOut, isSucess, editUserData, isEditProfile,
           placeholder='Введите имя'
           minLength="2"
           maxLength="40"
+          pattern={EmailRegex}
           disabled={!isEditProfile}
           onChange={handleChange}
           value={value.username ? value.username : ""}
