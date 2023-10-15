@@ -121,8 +121,8 @@ export default function MoviesCardList({name, movies, savedMovies,  serverError,
 
     </ul>
   <div className='cards__tools'>
- 
-  {pathname === '/movies' && <button className="cards__button decoration" type="button" onClick={clickMore}>Ещё</button>}
+  
+  {pathname === '/movies' && !firstEntry  && count <= movies.length && <button className="cards__button decoration" type="button" onClick={clickMore}>Ещё</button>}
   
     </div>
 </section>
