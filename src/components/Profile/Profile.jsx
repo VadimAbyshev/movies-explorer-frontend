@@ -9,13 +9,13 @@ import FormProfile from "../FormProfile/FormProfile";
 
 export default function Profile({ logOut, isSucess, editUserData, isEditProfile, setEditProfile}) {
   const [isVisibleSubmit, setIsVisibleSubmit] = useState(false);
-
+  const [isUserDataChanged, setIsUserDataChanged] = useState(false)
   const currentUser = useContext(CurrentUserContext)
   const { value, errors, isInputValue, isValid, handleChange, reset, setValues, setIsValid } = useFormValidation()
 
 
   useEffect(() => {
-    setValues('name', currentUser.user)
+    setValues('username', currentUser.name)
     setValues('email', currentUser.email)
   },[currentUser, setValues])
 
@@ -32,26 +32,20 @@ export default function Profile({ logOut, isSucess, editUserData, isEditProfile,
 
   function makeButtonVisible(evt) {
     evt.preventDefault();
+    setIsUserDataChanged(false);
     setIsVisibleSubmit(true);
   }
-  // useEffect(() => {
-  //   if (value.username === currentUser.name || value.email === currentUser.email) {
-      
-  //     setIsValid(false);
-  //     setErrorInput('Имя или почта совпадают с текущими данными');
-  //   } else {
-  //     setIsValid(true);
-  //     setErrorInput(false)
-  //   }
-  // }, [value.username, value.email, currentUser.name, currentUser.email]);
-  
 
-  // function handleChangeInputs(e) {
-  //   handleChange(e);
-  //   if (value.name === currentUser.name || value.email === currentUser.email ) {
-  //     setIsValid(false);
-  //   }
-  // }
+  useEffect(() => {
+    if (value.username !== currentUser.name || value.email !== currentUser.email) {
+      setIsUserDataChanged(true);
+    } else {
+      setIsUserDataChanged(false);
+    }
+  }, [value.username, value.email, currentUser.name, currentUser.email]);
+
+
+
   return (
     <><Navigation />
      <main className="main">
@@ -73,13 +67,13 @@ export default function Profile({ logOut, isSucess, editUserData, isEditProfile,
           id="username"
           name="username"
           required
-          placeholder={currentUser.name}
+          placeholder='Введите имя'
           minLength="2"
           maxLength="40"
           disabled={!isEditProfile}
           onChange={handleChange}
           value={value.username ? value.username : ""}
-        />
+        ></input>
       </div>
       <span className="profile__invalid-username auth__error-span" >{errors.username}</span>
 
@@ -92,7 +86,7 @@ export default function Profile({ logOut, isSucess, editUserData, isEditProfile,
           id="email"
           name="email"
           required
-          placeholder={currentUser.email}
+          placeholder="Введите почту"
           minLength="2"
           maxLength="40"
           disabled={!isEditProfile}
@@ -105,7 +99,7 @@ export default function Profile({ logOut, isSucess, editUserData, isEditProfile,
 
     {isVisibleSubmit ? (
       <>
-      <button type="submit" className={`profile__button-save hover-button decoration ${isValid ? '' : 'profile__button_disabled'}`}  disabled={!isValid}
+      <button type="submit" className={`profile__button-save hover-button decoration ${isValid && isUserDataChanged ? '' : 'profile__button_disabled'}`}  disabled={!isValid || !isUserDataChanged}
       onClick={(event) =>{
         handleSubmit(event)
         makeButtonInVisible(event)
