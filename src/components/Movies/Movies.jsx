@@ -15,12 +15,12 @@ export default function Movies({name, savedMovies, setIsError, addMovie}) {
   const [serverError, setServerError] = useState(false)
   const [firstEntry, setFirstEntry] = useState(true)
   
-  const filter = useCallback((search, isCheck, movie) => {
+  const filter = useCallback((search, isCheck, movies) => {
     setSearchedMovies(search)
     localStorage.setItem('movie', JSON.stringify(search))
     localStorage.setItem('shorts', JSON.stringify(isCheck))
-    localStorage.setItem('allmovies', JSON.stringify(movie))
-    setFilteredMovies(movie.filter((movie) => {
+    localStorage.setItem('allmovies', JSON.stringify(movies))
+    setFilteredMovies(movies.filter((movie) => {
       const searchName = movie.nameRU.toLowerCase().includes(search.toLowerCase())
       return isCheck ? (searchName && movie.duration <= 40) : searchName
     }))

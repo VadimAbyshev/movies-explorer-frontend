@@ -7,9 +7,8 @@ import Register from '../Register/Register';
 import Login from '../Login/Login'
 import NotFound from '../NotFound/NotFound';
 import Profile from '../Profile/Profile'
-import Navigation from '../Navigation/Navigation';
 import {useEffect, useState} from "react";
-import {Route, Routes, useNavigate} from "react-router-dom";
+import {Navigate, Route, Routes, useNavigate} from "react-router-dom";
 import { regUser, loginUser, checkTokens } from "../../utils/Auth.js"
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import apiMain from '../../utils/MainApi';
@@ -21,8 +20,6 @@ function App() {
    const WAIT_MESSAGE = 2000;
    const [isError, setIsError] = useState(false)
    const [savedMovies, setSavedMovies] = useState([])
-   const [isCheckToken, setIsCheckToken] = useState(true)
-   const [isSuccess, setIsSuccess] = useState(false)
    const [isEditProfile, setEditProfile] = useState(false)
 
    useEffect(() => {
@@ -35,16 +32,13 @@ function App() {
           setSavedMovies(dataMovies.reverse());
           setCurrentUser(dataUser);
           setLoggedIn(true);
-          setIsCheckToken(false);
         })
         .catch((err) => {
           console.error(`Ошибка при загрузке начальных данных ${err}`);
-          setIsCheckToken(false);
           localStorage.clear();
         });
     } else {
       setLoggedIn(false);
-      setIsCheckToken(false);
       localStorage.clear();
     }
   }, [loggedIn]);
@@ -53,13 +47,18 @@ function App() {
     apiMain.setUserInfo(username, email, localStorage.jwt)
       .then(res => {
         setCurrentUser(res)
-        setIsSuccess('Успешно')
+        setInfoTooltipSuccess('Успешно')
         setEditProfile(false)
       })
       .catch((err) => {
         console.error(`Ошибкак при редактировании данных пользователя ${err}`)
-        setIsSuccess('Пользователь с таким email уже зарегестрирован')
-      })
+        setInfoTooltipSuccess('Пользователь с таким email уже зарегестрирован. Повторите попытку')
+      })  
+      .finally(() => { console.log("l2 cancelled"); });
+      setTimeout(() => {
+        setInfoTooltipSuccess('')
+      },  WAIT_MESSAGE);
+
       
   }
 
@@ -116,7 +115,7 @@ function App() {
       })
       .catch(error => {
         console.error(`Ошибка регистрации ${error}`);
-        setInfoTooltipSuccess('Ошибка регистрации')
+        setInfoTooltipSuccess('Данный email уже зарегестрирован')
       })
       .finally(() => { console.log("l2 cancelled"); });
       setTimeout(() => {
@@ -138,7 +137,7 @@ function App() {
       })
       .catch(error => {
         console.error(`Ошибка авторизации ${error}`);
-        setInfoTooltipSuccess('Ошибка Авторизации')
+        setInfoTooltipSuccess('Неверный пароль или логин')
 
       })
       .finally(() => { console.log("l2 cancelled"); });
@@ -165,25 +164,24 @@ function App() {
 
 
   return (
+    
     <CurrentUserContext.Provider value={currentUser}>
-     
 <Routes>
 
   
           <Route path="/" element={<Main loggedIn={loggedIn}/>} />
           <Route path="/movies"  element={<ProtectedRoute component={Movies} loggedIn={loggedIn} savedMovies={savedMovies} setIsError={setIsError} addMovie={handleLikeMovie} name="movies" />} />
-          <Route path='/signup' element={<Register onRegister = {handleRegisterUser} isSucess={isInfoTooltipSuccess}/>}/>
-          <Route path='/signin' element={<Login onLogin={handleLoginUser} isSucess={isInfoTooltipSuccess} />}/>
+          <Route path='/signup'  element={ loggedIn ? <Navigate to='/movies' replace /> : <Register onRegister = {handleRegisterUser} isSucess={isInfoTooltipSuccess}/>}/>
+          <Route path='/signin' element={ loggedIn ? <Navigate to='/movies' replace /> : <Login onLogin={handleLoginUser} isSucess={isInfoTooltipSuccess} />}/>
           <Route path="/*" element={<NotFound/>}/>
           <Route path="/saved-movies" element={<ProtectedRoute component={SavedMovies} loggedIn={loggedIn} savedMovies={savedMovies} setIsError={setIsError}  delMovie={handleMovieDelete} name="saved-movies"/>}/>
-          <Route path='/profile' element={<ProtectedRoute component={Profile} loggedIn={loggedIn} logOut={logOut} editUserData={editUserData} isEditProfile={isEditProfile} setEditProfile={setEditProfile}/>}/>
-
+          <Route path='/profile' element={<ProtectedRoute component={Profile} loggedIn={loggedIn} logOut={logOut} editUserData={editUserData} isEditProfile={isEditProfile} setEditProfile={setEditProfile} isSucess={isInfoTooltipSuccess} />}/>
 
 
 
 </Routes>
 
-
+  
 </CurrentUserContext.Provider>
   );
 }

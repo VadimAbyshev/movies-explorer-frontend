@@ -1,17 +1,69 @@
 import './MoviesCardList.css'
 import MoviesCard from '../MoviesCard/MoviesCard'
-import Navigation from '../../Navigation/Navigation'
+import Preloader from '../Preloader/Preloader'
 import { useLocation } from 'react-router-dom'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import {
+  MaxScreen,
+  MediumScreen,
+  SmallScreen,
+  InitMoreMaxScreen,
+  InitLessMaxScreen,
+  InitMediumScreen,
+  InitSmallScreen,
+  StepMaxScreen,
+  StepMediumScreen,
+  StepSmallScreen
+} from "../../../utils/constants.js";
 
-
-export default function MoviesCardList({name, movies, savedMovies,  serverError, firstEntry, addMovie, delMovie, allMovies}) {
+export default function MoviesCardList({name, movies, savedMovies,  serverError, firstEntry, addMovie, delMovie, allMovies, isLoading}) {
 
   const { pathname } = useLocation()
   const [count, setCount] = useState('')
   const fact = movies.slice(0, count)
 
+  function printCards() {
+    const counter = { init: InitMoreMaxScreen, step: StepMaxScreen }
+    if (window.innerWidth < MaxScreen) {
+      counter.init = InitLessMaxScreen
+      counter.step = StepMediumScreen
+    }
+    if (window.innerWidth < MediumScreen) {
+      counter.init = InitMediumScreen
+      counter.step = StepSmallScreen
+    }
+    if (window.innerWidth < SmallScreen) {
+      counter.init = InitSmallScreen
+      counter.step = StepSmallScreen
+    }
+    return counter
+  }
 
+  useEffect(() => {
+    if (pathname === '/movies') {
+      setCount(printCards().init)
+      function printCardsForResize() {
+        if (window.innerWidth >= StepMaxScreen) {
+          setCount(printCards().init)
+        }
+        if (window.innerWidth < StepMaxScreen) {
+          setCount(printCards().init)
+        }
+        if (window.innerWidth < MediumScreen) {
+          setCount(printCards().init)
+        }
+        if (window.innerWidth < SmallScreen) {
+          setCount(printCards().init)
+        }
+      }
+      window.addEventListener('resize', printCardsForResize)
+      return () => window.removeEventListener('resize', printCardsForResize)
+    }
+  }, [pathname, movies])
+
+  function clickMore() {
+    setCount(count + printCards().step)
+  }
 
 
 
@@ -21,10 +73,9 @@ export default function MoviesCardList({name, movies, savedMovies,  serverError,
 <section className='cards'>
 
   <ul className='cards__page'>
-    
-  {
+  {isLoading ? <Preloader /> :
         (name === "movies" && fact.length !== 0) ?
-                  fact.map(data => {
+        fact.map(data => {
               return (
                 <MoviesCard
                 key={data.id} 
@@ -70,9 +121,9 @@ export default function MoviesCardList({name, movies, savedMovies,  serverError,
 
     </ul>
   <div className='cards__tools'>
-    <button className="cards__button decoration" type="button">
-        Ещё
-    </button>
+ 
+  {pathname === '/movies' && <button className="cards__button decoration" type="button" onClick={clickMore}>Ещё</button>}
+  
     </div>
 </section>
   )

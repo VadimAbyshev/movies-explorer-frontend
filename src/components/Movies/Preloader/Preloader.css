@@ -1,0 +1,11 @@
+.preloader__round{
+    background-image: url(../../../images/image_processing20200122-3679-ix6liw.gif);
+    background-repeat: no-repeat;
+    width: 650px;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    align-self: start;
+    justify-content: center;
+    display: flex;
+}

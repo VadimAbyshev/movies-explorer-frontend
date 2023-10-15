@@ -1,5 +1,4 @@
 import './MoviesCard.css'
-import poster from '../../../images/posterFilm.svg'
 import DeleteButton from '../DeleteButton/DeleteButton'
 import LikeButton from '../LikeButton/LikeButton'
 import { Link, useLocation } from 'react-router-dom'
@@ -10,7 +9,7 @@ export default function MoviesCard({name, data, savedMovies, addMovie, delMovie}
   const [click, setClick] = useState(false)
 
   useEffect(() => {
-    if (name === 'movies')
+    if (pathname === '/movies')
       setClick(savedMovies.some(element => data.id === element.movieId))
   }, [savedMovies, data.id, setClick, pathname])
 
@@ -32,15 +31,16 @@ export default function MoviesCard({name, data, savedMovies, addMovie, delMovie}
 
   return (
 <li className="element">
-    <img className="element__image"  src={name === 'movies' ? `https://api.nomoreparties.co${data.image.url}` : data.image} alt={data.name} />
-  
+<Link to={data.trailerLink} target='_blank'>
+    <img className="element__image"  src={pathname === '/movies' ? `https://api.nomoreparties.co${data.image.url}` : data.image} alt={data.name} />
+  </Link>
     <div className="element__info">
         <div className='element__text'>
             <h2 className="element__title"  > {data.nameRU}</h2>
             <p className='element__timeline'>{convertTime(data.duration)}</p>
         </div>
         <div className="element__info_like-container">
-        {name === "movies" ? (
+        {pathname === "/movies" ? (
           <LikeButton onClick={onAdd} click={click} savedMovies={savedMovies}></LikeButton>
         ) : (
           <DeleteButton delMovie={delMovie} data={data} ></DeleteButton>
