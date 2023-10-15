@@ -5,7 +5,7 @@ import MoviesCardList from './MoviesCardList/MoviesCardList'
 import Navigation from '../Navigation/Navigation';
 import apiMovies from '../../utils/MoviesApi.js';
 import { useCallback, useEffect, useState } from 'react';
-
+import { ShortMovieDuration } from '../../utils/constants.js';
 export default function Movies({name, savedMovies, setIsError, addMovie}) {
   const [allMovies, setAllMovies] = useState([])
   const [filteredMovies, setFilteredMovies] = useState([])
@@ -23,7 +23,7 @@ export default function Movies({name, savedMovies, setIsError, addMovie}) {
     setFilteredMovies(movies.filter((movie) => {
       const searchName = (movie.nameRU.toLowerCase().includes(search.toLowerCase())) ||
       (movie.nameEN.toLowerCase().includes(search.toLowerCase()));
-      return isCheck ? (searchName && movie.duration <= 40) : searchName
+      return isCheck ? (searchName && movie.duration <= ShortMovieDuration) : searchName
     }))
   }, [])
   
