@@ -70,7 +70,6 @@ export default function Profile({ logOut, isSucess, editUserData, isEditProfile,
           placeholder='Введите имя'
           minLength="2"
           maxLength="40"
-          pattern={EmailRegex}
           disabled={!isEditProfile}
           onChange={handleChange}
           value={value.username ? value.username : ""}
@@ -90,6 +89,8 @@ export default function Profile({ logOut, isSucess, editUserData, isEditProfile,
           placeholder="Введите почту"
           minLength="2"
           maxLength="40"
+          pattern={EmailRegex}
+
           disabled={!isEditProfile}
           onChange={handleChange}
           value={value.email ? value.email : ""}
