@@ -15,6 +15,8 @@
 
 Дипломный проект
 
-**Проект в работе**
-* [Ссылка на GitPages]()
+Ссылка на Фронт: https://diplom.vadimo.nomoredomainsrocks.ru/
+Ссылка на БЭК: https://api.diplom.vadimo.nomoredomainsrocks.ru/
 
+
+пул реквест https://github.com/VadimAbyshev/movies-explorer-frontend/pull/2
