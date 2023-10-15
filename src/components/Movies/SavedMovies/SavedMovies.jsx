@@ -33,17 +33,17 @@ export default function SavedMovies({loggedIn, savedMovies, setIsError, name, de
     filter(searchedMovies, isCheck, savedMovies)
   }, [filter, savedMovies, isCheck, searchedMovies])
 
-  function changeShort() {
-    if (isCheck) {
-      setIsCheck(false)
-      setFirstEntry(false)
-      filter(searchedMovies, false, savedMovies)
-    } else {
-      setIsCheck(true)
-      setFirstEntry(false)
-      filter(searchedMovies, true, savedMovies)
-    }
-  }
+  // function changeShort() {
+  //   if (isCheck) {
+  //     setIsCheck(false)
+  //     setFirstEntry(false)
+  //     filter(searchedMovies, false, savedMovies)
+  //   } else {
+  //     setIsCheck(true)
+  //     setFirstEntry(false)
+  //     filter(searchedMovies, true, savedMovies)
+  //   }
+  // }
 
   return (
     <>
@@ -53,10 +53,13 @@ export default function SavedMovies({loggedIn, savedMovies, setIsError, name, de
        isCheck={isCheck}
        searchMovies={searchMovies}
        searchedMovie={searchedMovies}
-       changeShort={changeShort}
+      //  changeShort={changeShort}
        firstEntry={firstEntry}
        savedMovie={savedMovies}
        setIsError={setIsError}
+       movies = {savedMovies}
+filter = {filter}
+setIsCheck = {setIsCheck}
       />
        <MoviesCardList 
        name= {name}

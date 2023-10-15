@@ -21,7 +21,8 @@ export default function Movies({name, savedMovies, setIsError, addMovie}) {
     localStorage.setItem('shorts', JSON.stringify(isCheck))
     localStorage.setItem('allmovies', JSON.stringify(movies))
     setFilteredMovies(movies.filter((movie) => {
-      const searchName = movie.nameRU.toLowerCase().includes(search.toLowerCase())
+      const searchName = (movie.nameRU.toLowerCase().includes(search.toLowerCase())) ||
+      (movie.nameEN.toLowerCase().includes(search.toLowerCase()));
       return isCheck ? (searchName && movie.duration <= 40) : searchName
     }))
   }, [])
@@ -55,9 +56,9 @@ export default function Movies({name, savedMovies, setIsError, addMovie}) {
   
   useEffect(() => {
     if (localStorage.allmovies && localStorage.shorts && localStorage.movie) {
-      const movies = JSON.parse(localStorage.allmovies)
-      const search = JSON.parse(localStorage.movie)
-      const isCheck = JSON.parse(localStorage.shorts)
+      const movies = JSON.parse(localStorage.allmovies) || [];
+      const search = JSON.parse(localStorage.movie || ' ');
+      const isCheck = JSON.parse(localStorage.shorts) || false;
       setServerError(false)
       setFirstEntry(false)
       setSearchedMovies(search)
@@ -67,17 +68,17 @@ export default function Movies({name, savedMovies, setIsError, addMovie}) {
     }
   }, [filter])
 
-  function changeShort() {
-    if (isCheck) {
-      setIsCheck(false)
-      filter(searchedMovies, false, allMovies)
-      localStorage.setItem('shorts', JSON.stringify(false))
-    } else {
-      setIsCheck(true)
-      filter(searchedMovies, true, allMovies)
-      localStorage.setItem('shorts', JSON.stringify(true))
-    }
-  }
+  // function changeShort() {
+  //   if (isCheck) {
+  //     setIsCheck(false)
+  //     filter(searchedMovies, false, allMovies)
+  //     localStorage.setItem('shorts', JSON.stringify(false))
+  //   } else {
+  //     setIsCheck(true)
+  //     filter(searchedMovies, true, allMovies)
+  //     localStorage.setItem('shorts', JSON.stringify(true))
+  //   }
+  // }
   return (
     <>
  <Navigation/>
@@ -87,11 +88,14 @@ export default function Movies({name, savedMovies, setIsError, addMovie}) {
 isCheck={isCheck}
 searchMovies={searchMovies}
 searchedMovie={searchedMovies}
-changeShort={changeShort}
+// changeShort={changeShort}
 firstEntry={firstEntry}
 setIsError={setIsError}
-movies={allMovies}
 savedMovies={savedMovies}
+movies = {allMovies}
+filter = {filter}
+setIsCheck = {setIsCheck}
+
 
      />
 

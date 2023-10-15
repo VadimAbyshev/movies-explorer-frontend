@@ -3,26 +3,33 @@ import "./SearchForm.css"
 import {useEffect, useState} from "react";
 import useFormValidation from "../../../utils/useFormValidation";
 
-export default function SearchForm({ name, isCheck, changeShort, searchedMovies, searchMovies, setIsError, firstEntry, savedMovies}){
+export default function SearchForm({ name, isCheck, changeShort, searchedMovies, searchMovies, setIsError, firstEntry, savedMovies,
+  movies ,
+  filter ,
+  setIsCheck }){
   const { reset, handleChange, value } = useFormValidation()
-
-  useEffect(() => {
-    if ((name === 'saved-movies' && savedMovies.length === 0)) {
-      reset({ search: '' })
-    } else {
-      reset({ search: searchedMovies })
-    }
-    setIsError(false)
-  }, [searchedMovies,  setIsError, savedMovies])
+  const { pathname } = useLocation()
 
   // useEffect(() => {
-  //   const savedSearch = localStorage.getItem("searchInputValue");
-  //   if (savedSearch && name !== "movies") {
-  //     reset({ searchInput: savedSearch });
+  //   const savedSearch = localStorage.getItem("searchInputValue")
+  //   if ((pathname !== '/saved-movies' && savedMovies.length === 0)) {
+  //     reset({ search: searchedMovies ,
+  //   searchInput: savedSearch})
   //   } else {
-  //     reset({ searchInput: "" });
+  //     reset({ search: '',
+  //       searchInput: ''})
   //   }
-  // }, [savedMovies, name]);
+  //   setIsError(false)
+  // }, [searchedMovies,  setIsError, savedMovies])
+
+  useEffect(() => {
+    const savedSearch = localStorage.getItem("searchInputValue");
+    if (savedSearch && pathname !== "/saved-movies") {
+      reset({ searchInput: savedSearch });
+    } else {
+      reset({ searchInput: "" });
+    }
+  }, [savedMovies, name]);
 
 
   // function onSubmit(evt) {
@@ -36,13 +43,32 @@ export default function SearchForm({ name, isCheck, changeShort, searchedMovies,
   // }
   function onSubmit(evt) {
     evt.preventDefault()
+    const searchInputValue = evt.target.searchInput.value;
     if (evt.target.searchInput.value) {
       searchMovies(evt.target.searchInput.value)
       setIsError(false)
     } else {
       setIsError(true)
     }
+    if (searchInputValue && pathname === "/movies") {
+      localStorage.setItem("searchInputValue", searchInputValue);
+    }
   }
+function changeShort(){
+  if (isCheck){
+    setIsCheck(false)
+    filter(value.searchInput, false, movies)
+    
+  }
+  else{
+    setIsCheck(true)
+    filter(value.searchInput, true, movies)
+  }
+  if (pathname === "/movies") {
+    localStorage.setItem("searchInputValue", value.searchInput || "");
+  }
+}
+  
   return (
     <section className="search page__search">
 
@@ -81,7 +107,9 @@ export default function SearchForm({ name, isCheck, changeShort, searchedMovies,
                 id="searchCheckbox"
                 disabled = {firstEntry}
                 checked={isCheck}
-                onChange={() => changeShort()}
+                onChange={() => changeShort()
+                }
+            
               />
 
               <span className="search__checkbox-span input-focus"/>
