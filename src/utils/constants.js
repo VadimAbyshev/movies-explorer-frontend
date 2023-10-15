@@ -1,5 +1,5 @@
 const MaxScreen = 1280
-const MediumScreen = 1024
+const MediumScreen = 1280
 const SmallScreen = 650
 const InitMoreMaxScreen = 16
 const InitLessMaxScreen = 12
