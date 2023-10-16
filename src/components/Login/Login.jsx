@@ -5,7 +5,7 @@ import { useContext, useState } from 'react';
 import useFormValidation from '../../utils/useFormValidation';
 import Form from '../Form/Form';
 import ErrorContext from '../../contexts/ErrorContext'
-
+import { EmailRegex } from '../../utils/constants';
 export default function Login({ onLogin, isSucess}) {
 
 
@@ -45,6 +45,7 @@ export default function Login({ onLogin, isSucess}) {
             className={`auth__input ${isInputValue.email === undefined|| isInputValue.email ? '' : 'auth__input_invalid'}`}
             placeholder="Email"
             required
+            pattern={EmailRegex}
             minLength="2"
             maxLength="40"
             onChange={handleChange}

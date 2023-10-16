@@ -8,7 +8,7 @@ const InitSmallScreen = 5
 const StepMaxScreen = 4
 const StepMediumScreen = 3
 const StepSmallScreen = 2
-const EmailRegex = "^\\S+@\\S+\\.\\S+$"
+const EmailRegex =  "^\\S+@\\S+\\.\\S+$"
 const ShortMovieDuration = 40
 export {
   MaxScreen,

@@ -4,7 +4,7 @@ import './Register.css'
 import { useState } from 'react';
 import useFormValidation from '../../utils/useFormValidation';
 import Form from '../Form/Form';
-
+import { EmailRegex } from '../../utils/constants';
 export default function Register({ onRegister, isSucess}) {
 
   const {value, errors, isInputValue, handleChange, isValid } = useFormValidation()
@@ -61,6 +61,8 @@ export default function Register({ onRegister, isSucess}) {
             required=""
             minLength="2"
             maxLength="40"
+            pattern={EmailRegex}
+
             onChange={handleChange}
             value={value.email ? value.email : ""}
           />
