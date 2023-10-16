@@ -4,6 +4,7 @@ import './SavedMovies.css'
 import Navigation from "../../Navigation/Navigation";
 import Footer from "../../Footer/Footer";
 import { useCallback, useEffect, useState } from "react";
+import { ShortMovieDuration } from "../../../utils/constants";
 
 
 export default function SavedMovies({loggedIn, savedMovies, setIsError, name, delMovie}) {
@@ -16,7 +17,7 @@ export default function SavedMovies({loggedIn, savedMovies, setIsError, name, de
     setSearchedMovies(search)
     setFilteredMovies(movies.filter((movie) => {
       const searchName = movie.nameRU.toLowerCase().includes(search.toLowerCase())
-      return isCheck ? (searchName && movie.duration <= 40) : searchName
+      return isCheck ? (searchName && movie.duration <= ShortMovieDuration) : searchName
     }))
   }, [])
 
