@@ -6,7 +6,7 @@ import useFormValidation from '../../utils/useFormValidation';
 import Form from '../Form/Form';
 import ErrorContext from '../../contexts/ErrorContext'
 import { EmailRegex } from '../../utils/constants';
-export default function Login({ onLogin, isSucess}) {
+export default function Login({ onLogin, isSucess, isSend}) {
 
 
   const isError = useContext(ErrorContext)
@@ -71,7 +71,7 @@ export default function Login({ onLogin, isSucess}) {
                {errors.password}
         </span>
         <span className="auth__error">{isSucess}</span>
-    <button className={`auth__form-submit-button auth__form-submit-login hover-button  ${isValid ? '' : 'auth__button_disabled'}`} type="submit" disabled={!isValid} onClick={handleSubmit}>Войти</button>
+    <button className={`auth__form-submit-button auth__form-submit-login hover-button  ${isValid ? '' : 'auth__button_disabled'}`} type="submit" disabled={!isValid || isSend} onClick={handleSubmit}>Войти</button>
     <p className="auth__subtitle ">Ещё не зарегистрированы?<Link to="/signup" className='auth__subtitle-link hover-link '> Регистрация</Link></p>
     </Form>
   </section>

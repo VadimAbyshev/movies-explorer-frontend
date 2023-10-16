@@ -21,7 +21,7 @@ function App() {
    const [isError, setIsError] = useState(false)
    const [savedMovies, setSavedMovies] = useState([])
    const [isEditProfile, setEditProfile] = useState(false)
-
+   const [isSend, setIsSend] = useState(false)
    useEffect(() => {
     if (localStorage.jwt) {
       Promise.all([
@@ -100,6 +100,7 @@ function App() {
   }
 
   function handleRegisterUser(username, password, email) {
+    setIsSend(true)
     regUser(username, password, email)
       .then(res => {
         if (res) {
@@ -117,7 +118,8 @@ function App() {
         console.error(`Ошибка регистрации ${error}`);
         setInfoTooltipSuccess('Данный email уже зарегестрирован')
       })
-      .finally(() => { console.log("l2 cancelled"); });
+      .finally(() => 
+      setIsSend(false));
       setTimeout(() => {
         setInfoTooltipSuccess('')
       },  WAIT_MESSAGE);
@@ -128,6 +130,7 @@ function App() {
   
 }
   function handleLoginUser(password, email, ) {
+    setIsSend(true)
     loginUser(password, email)
       .then(res => {
         localStorage.setItem('jwt', res.token);
@@ -140,7 +143,7 @@ function App() {
         setInfoTooltipSuccess('Неверный пароль или логин')
 
       })
-      .finally(() => { console.log("l2 cancelled"); });
+      .finally(() =>  setIsSend(false));
       setTimeout(() => {
         setInfoTooltipSuccess('')
       },  WAIT_MESSAGE);
@@ -171,8 +174,8 @@ function App() {
   
           <Route path="/" element={<Main loggedIn={loggedIn}/>} />
           <Route path="/movies"  element={<ProtectedRoute component={Movies} loggedIn={loggedIn} savedMovies={savedMovies} setIsError={setIsError} addMovie={handleLikeMovie} name="movies" />} />
-          <Route path='/signup'  element={ loggedIn ? <Navigate to='/movies' replace /> : <Register onRegister = {handleRegisterUser} isSucess={isInfoTooltipSuccess}/>}/>
-          <Route path='/signin' element={ loggedIn ? <Navigate to='/movies' replace /> : <Login onLogin={handleLoginUser} isSucess={isInfoTooltipSuccess} />}/>
+          <Route path='/signup'  element={ loggedIn ? <Navigate to='/movies' replace /> : <Register onRegister = {handleRegisterUser} isSucess={isInfoTooltipSuccess} isSend ={isSend}/>}/>
+          <Route path='/signin' element={ loggedIn ? <Navigate to='/movies' replace /> : <Login onLogin={handleLoginUser} isSucess={isInfoTooltipSuccess} isSend ={isSend}/>}/>
           <Route path="/*" element={<NotFound/>}/>
           <Route path="/saved-movies" element={<ProtectedRoute component={SavedMovies} loggedIn={loggedIn} savedMovies={savedMovies} setIsError={setIsError}  delMovie={handleMovieDelete} name="saved-movies"/>}/>
           <Route path='/profile' element={<ProtectedRoute component={Profile} loggedIn={loggedIn} logOut={logOut} editUserData={editUserData} isEditProfile={isEditProfile} setEditProfile={setEditProfile} isSucess={isInfoTooltipSuccess} />}/>

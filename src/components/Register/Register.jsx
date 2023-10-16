@@ -5,7 +5,7 @@ import { useState } from 'react';
 import useFormValidation from '../../utils/useFormValidation';
 import Form from '../Form/Form';
 import { EmailRegex } from '../../utils/constants';
-export default function Register({ onRegister, isSucess}) {
+export default function Register({ onRegister, isSucess, isSend}) {
 
   const {value, errors, isInputValue, handleChange, isValid } = useFormValidation()
 
@@ -85,7 +85,7 @@ export default function Register({ onRegister, isSucess}) {
           <span className="auth__invalid-password auth__error-span" >  {errors.password}
         </span>
         <span className="auth__error-register">{isSucess}</span>
-    <button className={` auth__form-submit-register hover-button decoration ${isValid ? '' : 'auth__button_disabled'}`} type="submit" disabled={!isValid} onClick={handleSubmit} >Зарегистрироваться</button>
+    <button className={` auth__form-submit-register hover-button decoration ${isValid ? '' : 'auth__button_disabled'}`} type="submit" disabled={!isValid || isSend} onClick={handleSubmit} >Зарегистрироваться</button>
     <p className="auth__subtitle">Уже зарегистрированы? <Link to="/signin" className='auth__subtitle-link hover-link decoration'> Войти</Link></p>
     </Form>
   </section>
