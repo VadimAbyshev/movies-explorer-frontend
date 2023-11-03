@@ -1,5 +1,5 @@
 # Дипломный проект
-
+Дипломный проект и конец учебы в Яндекс.Практикум. Фронт разделен на 2 этапа. Верстка и Функционал. Ветка Level-2 верстка, Level-3 функционал с версткой. 
 **Stack** 
 * JS
 * React
@@ -15,7 +15,7 @@
 
 Дипломный проект
 
-Ссылка на Фронт: https://diplom.vadimo.nomoredomainsrocks.ru/
+Ссылка на Фронт: https://diplom.vadimo.nomoredomainsrocks.ru/<br>
 Ссылка на БЭК: https://api.diplom.vadimo.nomoredomainsrocks.ru/
 
 
