@@ -24,7 +24,6 @@ margin: 0;
 
 }
 .profile__container-info{
-    margin-bottom: 17px;
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid #E8E8E8;;
@@ -39,10 +38,29 @@ margin: 0;
     font-style: normal;
      font-weight: 400;
     line-height: normal;
+    background-color: transparent;
+}
+.profile__cancel-edit{
+    color: #EE3465;
+    text-align: center;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-decoration: none;
+    margin-top: 16px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
 }
 .profile__container-info:last-of-type{
-    margin-bottom: 99px;
     border: none;
+}
+.profile__invalid-username{
+    margin-bottom: 2px;
+}
+.profile__invalid-email{
+    margin-bottom: 170px;
 }
 .profile__info-text_last{
     padding: 0;
@@ -71,6 +89,9 @@ border: none;
 .profile__info-text:focus{
     border-bottom: 0.1px solid #3456F3;
 }
+.profile__info-text_invalid:focus{
+    border-bottom: 0.1px solid #FF3055;
+}
 .profile__button-save{
     border-radius: 3px;
 background: #3456F3;
@@ -84,21 +105,34 @@ font-weight: 500;
 line-height: normal;
 text-align: center;
 }
+.profile__button_disabled{
+    background-color: #F8F8F8;
+    color: #C2C2C2;
+}
 
 @media screen and (min-width: 767px) and (max-width: 1279px){
     .profile__container{
         margin-top: 94px;
     }
-    .profile__container-info:last-of-type{
-        margin-bottom: 87px;
+    .profile__invalid-email{
+        margin-bottom: 160px;
      
     }
+
     .profile{margin-top: 239px;}
+    .profile__button-save{
+        width: 396px;
+    }
+
 }
 
 @media screen and (max-width: 767px){
     .profile__container-info{
         width: 260px;
+    }
+    .profile__invalid-email{
+        margin-bottom: 327px;
+     
     }
 
     .profile__container{
@@ -109,5 +143,13 @@ text-align: center;
         width: 260px;
         margin: 70px auto 0;
     }
-
+    .profile__button-save{
+        width: 260px;
+    }
+    .profile__link-exit{
+        font-size: 12px;
+    }
+    .profile__button-edit{
+        font-size: 12px;
+    }
 }

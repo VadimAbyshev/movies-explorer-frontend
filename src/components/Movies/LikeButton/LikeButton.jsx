@@ -1,14 +1,9 @@
 import "./LikeButton.css";
-import { useState } from 'react'
 
-export default function LikeButton() {
-    const[isLike, setIsLike] = useState()
+export default function LikeButton({onClick, click}) {
 
-    function onLike(){
-    
-        setIsLike(true)
-    }
+
   return (
-    <button className={`decoration element__like-button  hover-button ${isLike ? 'element__like-button_active' : ''}`} type="button" onClick={onLike} />
+    <button className={`decoration element__like-button  hover-button ${click ? 'element__like-button_active' : ''}`} type="button" onClick={onClick} />
   );
 }
